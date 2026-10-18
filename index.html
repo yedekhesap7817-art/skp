@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hangi Yemeğe Hangi Peynir?</title>
+<style>
+  @font-face { font-family: 'Inter'; font-weight: 500; src: url('fonts/Inter-Medium.otf') format('opentype'); }
+  @font-face { font-family: 'Inter'; font-weight: 600; src: url('fonts/Inter-SemiBold.otf') format('opentype'); }
+  @font-face { font-family: 'Inter'; font-weight: 800; src: url('fonts/Inter-ExtraBold.otf') format('opentype'); }
+  @font-face { font-family: 'Inter'; font-weight: 900; src: url('fonts/Inter-Black.otf') format('opentype'); }
+  :root { --bg: #1a1411; --fg: #F5EFE3; --muted: #b9ab9c; --accent: #F2A12A; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); font-family: 'Inter', system-ui, sans-serif; }
+  body.render { background: #000; }
+  .wrap { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 12px 16px; }
+  .stage { position: relative; height: calc(100% - 110px); aspect-ratio: 9 / 16; max-width: 100%; }
+  canvas { width: 100%; height: 100%; display: block; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+  body.render .wrap { padding: 0; display: block; }
+  body.render .stage { height: auto; width: 1080px; }
+  body.render canvas { width: 1080px; height: 1920px; border-radius: 0; box-shadow: none; }
+  body.render .controls, body.render .msg { display: none; }
+  .safe { position: absolute; inset: 0; pointer-events: none; display: none; }
+  .safe.on { display: block; }
+  .safe div { position: absolute; border: 2px dashed rgba(242,161,42,.85); }
+  .controls { width: min(100%, 640px); display: grid; grid-template-columns: auto auto 1fr auto auto auto; align-items: center; gap: 10px; }
+  button { background: #2f2520; color: var(--fg); border: 1px solid #4a3c33; border-radius: 10px; padding: 8px 12px; font: 600 14px 'Inter', sans-serif; cursor: pointer; min-width: 44px; min-height: 40px; }
+  button:hover { background: #3b2f29; }
+  input[type=range] { width: 100%; accent-color: var(--accent); }
+  .time { font: 600 13px ui-monospace, monospace; color: var(--muted); white-space: nowrap; }
+  .vol { display: flex; align-items: center; gap: 6px; }
+  .vol input { width: 80px; }
+  .msg { font-size: 12px; color: var(--muted); min-height: 16px; text-align: center; }
+  label.chk { font-size: 12px; color: var(--muted); display: flex; gap: 4px; align-items: center; white-space: nowrap; }
+  @media (max-width: 560px) { .controls { grid-template-columns: auto auto 1fr; } .vol, label.chk, .time { grid-column: span 1; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="stage">
+    <canvas id="c" width="1080" height="1920"></canvas>
+    <div class="safe" id="safe">
+      <div style="left:8.33%;top:13.02%;width:75%;height:65.1%"></div>
+      <div style="left:8.33%;top:68.75%;width:75%;height:8.85%;border-color:rgba(120,200,255,.8)"></div>
+    </div>
+  </div>
+  <div class="controls">
+    <button id="play" aria-label="Oynat / duraklat">▶</button>
+    <button id="restart" aria-label="Başa dön">⟲</button>
+    <input id="seek" type="range" min="0" max="1319" step="1" value="0" aria-label="Zaman çubuğu">
+    <span class="time" id="time">00:00.00 / 00:44.00</span>
+    <div class="vol"><button id="mute" aria-label="Sesi aç / kapat">🔊</button><input id="vol" type="range" min="0" max="1" step="0.05" value="0.8" aria-label="Ses düzeyi"></div>
+    <label class="chk"><input type="checkbox" id="safeToggle"> Güvenli alan</label>
+  </div>
+  <div class="msg" id="msg"></div>
+</div>
+<audio id="aud" preload="none">
+  <source src="audio/soundtrack.m4a" type="audio/mp4">
+  <source src="audio/soundtrack.ogg" type="audio/ogg">
+</audio>
+<script src="src/core.js"></script>
+<script src="src/assets.js"></script>
+<script src="src/scenes.js"></script>
+<script>
+(async function () {
+  const R = window.R;
+  const RENDER = new URLSearchParams(location.search).has('render');
+  if (RENDER) document.body.classList.add('render');
+  const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+  const msg = document.getElementById('msg');
+  try {
+    await Promise.all([500, 600, 800, 900].map((w) => document.fonts.load(`${w} 50px Inter`, 'İĞŞÇÖÜığşçöü')));
+  } catch (e) { msg.textContent = 'Font yüklenemedi, sistem fontu kullanılıyor.'; }
+  if (!document.fonts.check('900 50px Inter')) msg.textContent = 'Uyarı: Inter fontu bulunamadı (sayfayı yerel sunucuyla açın).';
+  R.init();
+
+  // Render modu: Playwright her kareyi bu fonksiyonla ister
+  window.renderFrame = (i) => { R.render(ctx, i / R.FPS); return true; };
+  window.getCues = () => ({ cues: R.cues, vo: R.VO, subs: R.SUBS });
+  window.ready = true;
+  if (RENDER) { R.render(ctx, 0); return; }
+
+  // ---------- önizleme oynatıcısı ----------
+  const aud = document.getElementById('aud');
+  const playBtn = document.getElementById('play'), seek = document.getElementById('seek'), timeEl = document.getElementById('time');
+  const muteBtn = document.getElementById('mute'), vol = document.getElementById('vol');
+  let audioOk = false;
+  aud.addEventListener('canplaythrough', () => { audioOk = true; }, { once: true });
+  aud.addEventListener('error', () => { msg.textContent = 'Ses dosyası bulunamadı; animasyon sessiz oynatılıyor.'; }, true);
+  aud.volume = +vol.value;
+  aud.preload = 'auto'; aud.load();
+  let t = 0, playing = false, last = 0;
+  const fmt = (s) => { const m = Math.floor(s / 60), r = s - m * 60; return `${String(m).padStart(2, '0')}:${r.toFixed(2).padStart(5, '0')}`; };
+  function draw() {
+    const f = Math.min(R.FRAMES - 1, Math.floor(t * R.FPS));
+    R.render(ctx, f / R.FPS);
+    seek.value = f;
+    timeEl.textContent = `${fmt(t)} / ${fmt(R.DUR)}`;
+  }
+  function setPlaying(p) {
+    playing = p;
+    playBtn.textContent = p ? '❚❚' : '▶';
+    if (p) {
+      last = performance.now();
+      if (audioOk || aud.readyState >= 2) { aud.currentTime = t; aud.play().catch(() => {}); }
+      requestAnimationFrame(loop);
+    } else aud.pause();
+  }
+  function loop(now) {
+    if (!playing) return;
+    if (!aud.paused && aud.readyState >= 2 && Math.abs(aud.currentTime - t) < 0.5) t = aud.currentTime;
+    else t += (now - last) / 1000;
+    last = now;
+    if (t >= R.DUR) { t = 0; if (!aud.paused || audioOk) { aud.currentTime = 0; aud.play().catch(() => {}); } } // döngü
+    draw();
+    requestAnimationFrame(loop);
+  }
+  playBtn.onclick = () => setPlaying(!playing);
+  document.getElementById('restart').onclick = () => { t = 0; aud.currentTime = 0; draw(); };
+  seek.oninput = () => { t = +seek.value / R.FPS; if (playing && aud.readyState >= 2) aud.currentTime = t; draw(); };
+  muteBtn.onclick = () => { aud.muted = !aud.muted; muteBtn.textContent = aud.muted ? '🔇' : '🔊'; };
+  vol.oninput = () => { aud.volume = +vol.value; };
+  document.getElementById('safeToggle').onchange = (e) => document.getElementById('safe').classList.toggle('on', e.target.checked);
+  window.addEventListener('keydown', (e) => {
+    if (e.code === 'Space') { e.preventDefault(); setPlaying(!playing); }
+    if (e.code === 'ArrowRight') { t = Math.min(R.DUR - 1 / R.FPS, t + 1); draw(); }
+    if (e.code === 'ArrowLeft') { t = Math.max(0, t - 1); draw(); }
+  });
+  draw();
+})();
+</script>
+</body>
+</html>

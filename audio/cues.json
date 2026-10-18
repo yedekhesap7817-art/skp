@@ -1,0 +1,621 @@
+{
+ "cues": [
+  {
+   "t": 0,
+   "type": "beat",
+   "dur": 0.5,
+   "gain": 1
+  },
+  {
+   "t": 0.02,
+   "type": "stretch",
+   "dur": 1.4,
+   "gain": 0.8
+  },
+  {
+   "t": 0.15,
+   "type": "pop",
+   "dur": 0.15,
+   "gain": 0.6
+  },
+  {
+   "t": 0.158,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.7
+  },
+  {
+   "t": 0.183,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.7
+  },
+  {
+   "t": 0.2,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.7
+  },
+  {
+   "t": 0.225,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.7
+  },
+  {
+   "t": 0.25,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.7
+  },
+  {
+   "t": 0.267,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.7
+  },
+  {
+   "t": 0.358,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.7
+  },
+  {
+   "t": 0.392,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.7
+  },
+  {
+   "t": 0.542,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.7
+  },
+  {
+   "t": 0.542,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.7
+  },
+  {
+   "t": 0.569,
+   "type": "tick",
+   "dur": 0.08,
+   "gain": 0.5
+  },
+  {
+   "t": 0.62,
+   "type": "clink",
+   "dur": 0.4,
+   "gain": 0.6
+  },
+  {
+   "t": 0.75,
+   "type": "pop",
+   "dur": 0.15,
+   "gain": 0.7
+  },
+  {
+   "t": 0.894,
+   "type": "tick",
+   "dur": 0.08,
+   "gain": 0.5
+  },
+  {
+   "t": 1.118,
+   "type": "tick",
+   "dur": 0.08,
+   "gain": 0.5
+  },
+  {
+   "t": 1.604,
+   "type": "tick",
+   "dur": 0.08,
+   "gain": 0.5
+  },
+  {
+   "t": 1.827,
+   "type": "tick",
+   "dur": 0.08,
+   "gain": 0.5
+  },
+  {
+   "t": 2.245,
+   "type": "tick",
+   "dur": 0.08,
+   "gain": 0.5
+  },
+  {
+   "t": 2.3,
+   "type": "whoosh",
+   "dur": 0.7,
+   "gain": 0.8
+  },
+  {
+   "t": 2.453,
+   "type": "tick",
+   "dur": 0.08,
+   "gain": 0.5
+  },
+  {
+   "t": 3.85,
+   "type": "stretch",
+   "dur": 2.9,
+   "gain": 1
+  },
+  {
+   "t": 5.2,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.8
+  },
+  {
+   "t": 5.233,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.8
+  },
+  {
+   "t": 5.258,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.8
+  },
+  {
+   "t": 5.292,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.8
+  },
+  {
+   "t": 5.333,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.8
+  },
+  {
+   "t": 5.35,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.8
+  },
+  {
+   "t": 5.467,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.8
+  },
+  {
+   "t": 5.517,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.8
+  },
+  {
+   "t": 5.717,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.8
+  },
+  {
+   "t": 5.717,
+   "type": "snap",
+   "dur": 0.15,
+   "gain": 0.8
+  },
+  {
+   "t": 8,
+   "type": "swish",
+   "dur": 0.4,
+   "gain": 0.5
+  },
+  {
+   "t": 8.65,
+   "type": "drip",
+   "dur": 0.12,
+   "gain": 0.45
+  },
+  {
+   "t": 9.19,
+   "type": "drip",
+   "dur": 0.12,
+   "gain": 0.45
+  },
+  {
+   "t": 9.64,
+   "type": "drip",
+   "dur": 0.12,
+   "gain": 0.45
+  },
+  {
+   "t": 10.09,
+   "type": "drip",
+   "dur": 0.12,
+   "gain": 0.45
+  },
+  {
+   "t": 10.42,
+   "type": "whoosh",
+   "dur": 0.7,
+   "gain": 0.9
+  },
+  {
+   "t": 10.63,
+   "type": "drip",
+   "dur": 0.12,
+   "gain": 0.45
+  },
+  {
+   "t": 11.37,
+   "type": "rasp",
+   "dur": 0.2688,
+   "gain": 0.85
+  },
+  {
+   "t": 12.01,
+   "type": "rasp",
+   "dur": 0.2688,
+   "gain": 0.85
+  },
+  {
+   "t": 12.65,
+   "type": "rasp",
+   "dur": 0.2688,
+   "gain": 0.85
+  },
+  {
+   "t": 13.29,
+   "type": "rasp",
+   "dur": 0.2688,
+   "gain": 0.85
+  },
+  {
+   "t": 13.93,
+   "type": "rasp",
+   "dur": 0.2688,
+   "gain": 0.85
+  },
+  {
+   "t": 14.57,
+   "type": "rasp",
+   "dur": 0.2688,
+   "gain": 0.85
+  },
+  {
+   "t": 15.21,
+   "type": "rasp",
+   "dur": 0.2688,
+   "gain": 0.85
+  },
+  {
+   "t": 15.85,
+   "type": "rasp",
+   "dur": 0.2688,
+   "gain": 0.85
+  },
+  {
+   "t": 16.49,
+   "type": "rasp",
+   "dur": 0.2688,
+   "gain": 0.85
+  },
+  {
+   "t": 17.13,
+   "type": "rasp",
+   "dur": 0.2688,
+   "gain": 0.85
+  },
+  {
+   "t": 18.28,
+   "type": "whoosh",
+   "dur": 0.8,
+   "gain": 0.9
+  },
+  {
+   "t": 20.3,
+   "type": "knifeTouch",
+   "dur": 0.2,
+   "gain": 0.8
+  },
+  {
+   "t": 20.55,
+   "type": "slice",
+   "dur": 0.35,
+   "gain": 0.9
+  },
+  {
+   "t": 20.95,
+   "type": "squish",
+   "dur": 2.4,
+   "gain": 0.8
+  },
+  {
+   "t": 27.5,
+   "type": "swoosh",
+   "dur": 0.6,
+   "gain": 1
+  },
+  {
+   "t": 28.05,
+   "type": "whoosh",
+   "dur": 0.5,
+   "gain": 0.6
+  },
+  {
+   "t": 29.45,
+   "type": "thud",
+   "dur": 0.2,
+   "gain": 0.45
+  },
+  {
+   "t": 29.68,
+   "type": "thud",
+   "dur": 0.2,
+   "gain": 0.5
+  },
+  {
+   "t": 30,
+   "type": "thud",
+   "dur": 0.3,
+   "gain": 1
+  },
+  {
+   "t": 30.32,
+   "type": "flap",
+   "dur": 0.2,
+   "gain": 0.7
+  },
+  {
+   "t": 30.42,
+   "type": "sizzle",
+   "dur": 3.6,
+   "gain": 0.5
+  },
+  {
+   "t": 32.38,
+   "type": "thud",
+   "dur": 0.3,
+   "gain": 0.9
+  },
+  {
+   "t": 34.42,
+   "type": "whoosh",
+   "dur": 0.6,
+   "gain": 0.7
+  },
+  {
+   "t": 35.05,
+   "type": "click",
+   "dur": 0.08,
+   "gain": 0.5
+  },
+  {
+   "t": 35.35,
+   "type": "click",
+   "dur": 0.08,
+   "gain": 0.5
+  },
+  {
+   "t": 35.65,
+   "type": "click",
+   "dur": 0.08,
+   "gain": 0.5
+  },
+  {
+   "t": 35.95,
+   "type": "click",
+   "dur": 0.08,
+   "gain": 0.5
+  },
+  {
+   "t": 41.95,
+   "type": "whoosh",
+   "dur": 0.6,
+   "gain": 0.6
+  },
+  {
+   "t": 42.5,
+   "type": "chime",
+   "dur": 1.2,
+   "gain": 0.8
+  },
+  {
+   "t": 43.55,
+   "type": "whoosh",
+   "dur": 0.5,
+   "gain": 0.5
+  }
+ ],
+ "vo": [
+  {
+   "t0": 0.2,
+   "t1": 2.9,
+   "s": "Hangi yemeğe hangi peynir? Dördünü ayıralım."
+  },
+  {
+   "t0": 3.3,
+   "t1": 6.9,
+   "s": "Mozzarella, pizza ve lazanyada uzayan doku verir."
+  },
+  {
+   "t0": 7.3,
+   "t1": 10.5,
+   "s": "Taze olanını kullanıyorsan, fazla suyunu süzdür."
+  },
+  {
+   "t0": 11.3,
+   "t1": 14.1,
+   "s": "Parmesan sert ve yoğun aromalıdır."
+  },
+  {
+   "t0": 14.5,
+   "t1": 18.3,
+   "s": "Makarna ve risottoya rendeleyerek lezzet katarsın."
+  },
+  {
+   "t0": 19.35,
+   "t1": 23.3,
+   "s": "Burratanın dışı mozzarella, içi kremalı peynir lifleridir."
+  },
+  {
+   "t0": 23.7,
+   "t1": 27.5,
+   "s": "Salatada, kızarmış ekmekte veya fırından çıkan pizzada dene."
+  },
+  {
+   "t0": 28.3,
+   "t1": 31.35,
+   "s": "Cheddar, burger ve tostta belirgin bir tat verir."
+  },
+  {
+   "t0": 31.6,
+   "t1": 34.6,
+   "s": "Isınınca yumuşar, erir ve yüzeye yayılır."
+  },
+  {
+   "t0": 35.3,
+   "t1": 41.9,
+   "s": "Kısaca: mozzarella uzatır, parmesan lezzeti yoğunlaştırır, burrata kremamsılık katar; cheddar burger ve tostu tamamlar."
+  },
+  {
+   "t0": 42.1,
+   "t1": 43.75,
+   "s": "Bir sonraki alışveriş için kaydet."
+  }
+ ],
+ "subs": [
+  {
+   "t0": 1.45,
+   "t1": 2.9,
+   "s": "Dördünü ayıralım.",
+   "hl": "Dördünü"
+  },
+  {
+   "t0": 3.3,
+   "t1": 5.05,
+   "s": "Mozzarella, pizza ve lazanyada",
+   "hl": "pizza"
+  },
+  {
+   "t0": 5.05,
+   "t1": 6.9,
+   "s": "uzayan doku verir.",
+   "hl": "uzayan"
+  },
+  {
+   "t0": 7.3,
+   "t1": 8.85,
+   "s": "Taze olanını kullanıyorsan,",
+   "hl": "Taze"
+  },
+  {
+   "t0": 8.85,
+   "t1": 10.5,
+   "s": "fazla suyunu süzdür.",
+   "hl": "süzdür."
+  },
+  {
+   "t0": 11.3,
+   "t1": 12.6,
+   "s": "Parmesan sert",
+   "hl": "sert"
+  },
+  {
+   "t0": 12.6,
+   "t1": 14.1,
+   "s": "ve yoğun aromalıdır.",
+   "hl": "yoğun"
+  },
+  {
+   "t0": 14.5,
+   "t1": 16.2,
+   "s": "Makarna ve risottoya",
+   "hl": "Makarna"
+  },
+  {
+   "t0": 16.2,
+   "t1": 18.3,
+   "s": "rendeleyerek lezzet katarsın.",
+   "hl": "rendeleyerek"
+  },
+  {
+   "t0": 19.35,
+   "t1": 21.1,
+   "s": "Burratanın dışı mozzarella,",
+   "hl": "dışı"
+  },
+  {
+   "t0": 21.1,
+   "t1": 23.3,
+   "s": "içi kremalı peynir lifleridir.",
+   "hl": "kremalı"
+  },
+  {
+   "t0": 23.7,
+   "t1": 25.4,
+   "s": "Salatada, kızarmış ekmekte",
+   "hl": "Salatada,"
+  },
+  {
+   "t0": 25.4,
+   "t1": 27.5,
+   "s": "veya fırından çıkan pizzada dene.",
+   "hl": "pizzada"
+  },
+  {
+   "t0": 28.3,
+   "t1": 29.85,
+   "s": "Cheddar, burger ve tostta",
+   "hl": "burger"
+  },
+  {
+   "t0": 29.85,
+   "t1": 31.35,
+   "s": "belirgin bir tat verir.",
+   "hl": "belirgin"
+  },
+  {
+   "t0": 31.6,
+   "t1": 33,
+   "s": "Isınınca yumuşar,",
+   "hl": "Isınınca"
+  },
+  {
+   "t0": 33,
+   "t1": 34.6,
+   "s": "erir ve yüzeye yayılır.",
+   "hl": "erir"
+  },
+  {
+   "t0": 35.3,
+   "t1": 36.95,
+   "s": "Kısaca: mozzarella uzatır,",
+   "hl": "uzatır,"
+  },
+  {
+   "t0": 36.95,
+   "t1": 38.65,
+   "s": "parmesan lezzeti yoğunlaştırır,",
+   "hl": "yoğunlaştırır,"
+  },
+  {
+   "t0": 38.8,
+   "t1": 40.3,
+   "s": "burrata kremamsılık katar;",
+   "hl": "kremamsılık"
+  },
+  {
+   "t0": 40.3,
+   "t1": 41.9,
+   "s": "cheddar burger ve tostu tamamlar.",
+   "hl": "tamamlar."
+  },
+  {
+   "t0": 42.1,
+   "t1": 43.75,
+   "s": "Bir sonraki alışveriş için kaydet.",
+   "hl": "kaydet."
+  }
+ ]
+}
